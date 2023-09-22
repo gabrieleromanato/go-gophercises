@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ .Title }}</title>
+</head>
+<body>
+    <h1>{{ .Title }}</h1>
+    {{range .Story}}
+        <p>{{ . }}</p>
+    {{end}}
+    <nav>
+        {{ range .Options}}
+            {{ if ne .Arc "home" }}
+                <a href="/story/{{ .Arc }}">{{ .Text }}</a>
+            {{ else }}
+                <a href="/">{{ .Text }}</a>
+            {{ end }}
+        {{end}}
+    </nav>
+</body>
+</html>
